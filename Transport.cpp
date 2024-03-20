@@ -50,15 +50,27 @@ public:
 
 class Scooter : public Transport {
 public:
-	Scooter() : Transport("Scooter") {}
+	Scooter() : Transport("Scooter"), PriceKilovat(0) {}
 
 	int PriceKilovat;
 
 	double CalculateTime(double distance, int speed) {
 		return distance / speed;
 	}
-	double CalculatePrice(double distance) {
+	double CalculatePrice(double distance, double price_km) {
 		return distance * PriceKilovat;
+	}
+};
+
+class Airplane : public Transport {
+public:
+	Airplane() : Transport("Airplane") {}
+
+	double CalculateTime(double distance, int speed) {
+		return distance / speed;
+	}
+	double CalculatePrice(double distance, double price_km) {
+		return distance * price_km;
 	}
 };
 
@@ -68,9 +80,9 @@ int main() {
 	int speed = 110; // Пример скорости автомобиля (в км/ч)
 	double price_km = 10; // Пример стоимости за километр (в гривне)
 
-	cout << "Car:" << endl;
-	cout << "Time: " << car.CalculateTime(distance, speed) << " hours" << endl;
-	cout << "Cost: " << car.CalculatePrice(distance, price_km) << endl;
+	cout << "Car:" << "\n";
+	cout << "Time: " << car.CalculateTime(distance, speed) << " hours" << "\n";
+	cout << "Cost: " << car.CalculatePrice(distance, price_km) << "\n";
 
 	return 0;
 }
