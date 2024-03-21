@@ -4,8 +4,10 @@
 using namespace std;
 
 class Transport {
+
 protected:
 	string type;
+
 public:
 	Transport(string type) {}
 	double CalculateTime(double distance, int speed) { return 0; }
@@ -32,7 +34,7 @@ public:
 		return distance / speed;
 	}
 	double CalculatePrice(double distance, double price_km) {
-		return distance * (40 + price_km); //добавленна минимальная цена для начала поездки
+		return distance * (40 + price_km); //Добавленна минимальная цена для начала поездки
 	}
 };
 
@@ -76,9 +78,9 @@ public:
 
 int main() {
 	Car car;
-	double distance = 474; // Пример расстояния между городами (в км)
-	int speed = 110; // Пример скорости автомобиля (в км/ч)
-	double price_km = 10; // Пример стоимости за километр (в гривне)
+	double distance = 474; // Расстояние 
+	int speed = 110; // Скорость 
+	double price_km = 10; // За километр (в гривне)
 
 	cout << "Car:" << "\n";
 	cout << "Time: " << car.CalculateTime(distance, speed) << " hours" << "\n";
